@@ -1,0 +1,36 @@
+En 2019,2020 l'extension ngx-bootstrap était assez bien intégrable dans angular 9 , 10 et 11.
+Les dernières versions de l'extension ngx-bootstrap ne s'intègrent malheureusement plus très bien 
+au sein des versions récentes d'angular (13,14, 15).
+
+Il faut mieux aujourd'hui ne plus s'appuyer sur l'extension ngx-bootstrap.
+Etant donné que bootstrap 5 n'utilise plus jquery, il est possible de paramétrer des onglets directement
+basés sur bootstrap 5.
+Sinon, l'extension angular-material est bien pour les onglets (même si look différent de bootstrap)
+---------------------------------------------------
+pour onglets en version material:
+
+npm install -s @angular/material 
+ou mieux encore
+ng add @angular/material 
+depuis le répertoire my-app et verifier package.json
+
+ajouter si besoin dans partie styles: [] de angular.json
+"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
+on ajoute dans src/app/app.module.ts
+import {MatTabsModule} from '@angular/material/tabs';
+et
+imports: [
+   ...,
+    MatTabsModule,
+     ],...
+
+et dans basic.component.html ou bien ailleurs
+<mat-tab-group>
+    <mat-tab label="calculatrice">
+       <app-calculatrice></app-calculatrice>
+   </mat-tab>
+   <mat-tab label="calcul tva">
+       <app-tva></app-tva>
+    </mat-tab>
+</mat-tab-group>
