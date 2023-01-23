@@ -9,7 +9,12 @@ import { CalculatriceComponent } from './basic/calculatrice/calculatrice.compone
 import { TvaComponent } from './basic/tva/tva.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { ExponentialPipe } from './basic/common/pipe/exponential.pipe';
+import { ExponentialPipe } from './common/pipe/exponential.pipe';
+import { DemoComponent } from './demo/demo.component';
+import { SeuilComponent } from './demo/seuil/seuil.component';
+import { RegletteComponent } from './demo/reglette/reglette.component';
+import { ZzComponent } from './demo/zz/zz.component';
+import { ListProdComponent } from './demo/list-prod/list-prod.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { ExponentialPipe } from './basic/common/pipe/exponential.pipe';
     CalculatriceComponent,
     TvaComponent,
     FooterComponent,
-    ExponentialPipe
+    ExponentialPipe,
+    DemoComponent,
+    SeuilComponent,
+    ListProdComponent,
+    RegletteComponent,
+    ZzComponent
   ],
   imports: [
     BrowserModule,
