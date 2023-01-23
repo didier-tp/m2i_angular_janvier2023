@@ -9,6 +9,7 @@ import { CalculatriceComponent } from './basic/calculatrice/calculatrice.compone
 import { TvaComponent } from './basic/tva/tva.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { ExponentialPipe } from './basic/common/pipe/exponential.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     BasicComponent,
     CalculatriceComponent,
     TvaComponent,
-    FooterComponent
+    FooterComponent,
+    ExponentialPipe
   ],
   imports: [
     BrowserModule,

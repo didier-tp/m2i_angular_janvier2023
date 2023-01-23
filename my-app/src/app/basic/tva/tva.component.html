@@ -10,6 +10,8 @@
     [class.enEvidence]="taux==t">{{t}}%</li> 
 </ul> <br/>
 <div *ngIf="tva!=undefined">
-    tva=<span [ngClass]="setClasses()">{{tva}}</span> <br/>
+    tva=<span [ngClass]="setClasses()">{{tva  | number:'1.0-2' }}</span> <br/>
     ttc=<span [ngClass]="setClasses()">{{ttc}}</span> <br/> 
 </div>
+
+ht à la puissance 3 = {{ht | exponential:3}}
