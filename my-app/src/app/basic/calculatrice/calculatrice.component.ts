@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-calculatrice',
   templateUrl: './calculatrice.component.html',
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatriceComponent implements OnInit {
 
-  constructor() { }
+a : number | undefined ;
+b : number | undefined ; /* =undefined  implicite */
+res : number | undefined =undefined;
+//res! :number  ;
 
-  ngOnInit(): void {
-  }
+onCalculer(op:string){
+ switch(op){
+case "+" :
+this.res = Number(this.a) + Number(this.b);break;
+//this.res = this.a + this.b; break;
+case "-" :
+this.res = Number(this.a)- Number(this.b);break;
+case "*" :
+this.res = Number(this.a) * Number(this.b);break;
+default:
+  this.res = undefined;
+//this.res = 0;//undefined;
+}
+}
+
+//coordonnées relatives de la souris qui survole une div
+x:number|undefined=0; 
+y:number|undefined=0;
+onMouseMove(evt : MouseEvent){
+let currentDiv : HTMLElement= <HTMLElement> evt.target;
+this.x = evt.pageX - currentDiv.offsetLeft;
+this.y = evt.pageY - currentDiv.offsetTop;
+}
+onMouseLeave(evt : MouseEvent){
+this.x=undefined; this.y=undefined;
+}
+constructor() { }
+ngOnInit(): void {}
 
 }
