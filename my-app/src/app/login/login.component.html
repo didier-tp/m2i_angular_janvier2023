@@ -2,15 +2,15 @@
 <form #formLogin="ngForm">
 <label>username:</label>
    <input [(ngModel)]="login.username" name="username" required  pattern="^[a-zA-Z].+" /> 
-      <br/>
+    (ex: admin1)  <br/>
 <label>password:</label>
    <input [(ngModel)]="login.password" name="password" required minlength="3" /> 
-     <br/>
+   (ex: pwdadmin1) <br/>
 <label>roles:</label>
     <input [(ngModel)]="login.roles" name="roles" required  /> 
-      <br/>
+    (ex: admin)  <br/>
 <input type="button" value="login" (click)="onLogin()"
 [disabled]="!formLogin.form.valid" />
       <br/>
 </form>
-message: {{message}}
+message: <span [style.color]="isConnected?'green':'red'">{{message}}</span>
