@@ -1,5 +1,8 @@
 <app-header  [titre]="title"></app-header>
-<p>bienvenu , {{title}}</p>
-<app-basic></app-basic>
-<app-demo></app-demo>
+
+<!-- la balise spéciale router-outlet de angular 
+sera automatiquement remplacée par le composant associé 
+à la route courante/sélectionnée -->
+<router-outlet></router-outlet>
+
 <app-footer></app-footer>

@@ -16,6 +16,8 @@ import { RegletteComponent } from './demo/reglette/reglette.component';
 import { ZzComponent } from './demo/zz/zz.component';
 import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { TogglePanelComponent } from './toggle-panel/toggle-panel.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { TogglePanelComponent } from './toggle-panel/toggle-panel.component';
     ListProdComponent,
     RegletteComponent,
     ZzComponent,
-    TogglePanelComponent
+    TogglePanelComponent,
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
