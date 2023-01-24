@@ -20,6 +20,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeviseComponent } from './devise/devise.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     TogglePanelComponent,
     WelcomeComponent,
     LoginComponent,
-    ConversionComponent
+    ConversionComponent,
+    DeviseComponent
   ],
   imports: [
     BrowserModule,
