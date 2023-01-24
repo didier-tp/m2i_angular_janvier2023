@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom, map  } from 'rxjs';
 import { Devise } from '../common/data/devise';
 import { DeviseService } from '../common/service/devise.service';
 
@@ -32,6 +33,16 @@ export class ConversionComponent implements OnInit {
         //car appel asynchrone non bloquant et réponse ultérieure via callback
   }
 
+  async onConvertirV2(){
+    try{
+       this.montantConverti =  await lastValueFrom(this._deviseService.convertir$(this.montant,
+                                  this.codeDeviseSource,
+                                  this.codeDeviseCible));
+       }catch(err){
+        console.log(err);
+       }           
+}
+
 
   initListeDevises(tabDevises : Devise[]){
     this.listeDevises = tabDevises;
@@ -45,6 +56,9 @@ export class ConversionComponent implements OnInit {
   //et après la prise en compte des injections et des éventuels @Input
   ngOnInit(): void {
     this._deviseService.getAllDevises$()
+          .pipe(
+             map( (tab)=>tab.sort( (d1:Devise,d2:Devise)=>d1.code.localeCompare(d2.code)  ))
+          )
          .subscribe({
             next: (tabDev : Devise[])=>{ this.initListeDevises(tabDev); },
             error: (err) => { console.log("error:"+err)}
