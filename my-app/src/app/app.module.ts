@@ -18,6 +18,7 @@ import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { TogglePanelComponent } from './toggle-panel/toggle-panel.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
+import { ConversionComponent } from './conversion/conversion.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     ZzComponent,
     TogglePanelComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    ConversionComponent
   ],
   imports: [
     BrowserModule,
