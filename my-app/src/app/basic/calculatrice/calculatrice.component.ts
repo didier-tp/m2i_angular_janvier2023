@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculatrice.component.scss']
 })
 export class CalculatriceComponent implements OnInit {
+
+modeChoisi : string = "simple"; //ou bien "sophistiquee"
 
 a : number | undefined ;
 b : number | undefined ; /* =undefined  implicite */
@@ -39,7 +42,16 @@ this.y = evt.pageY - currentDiv.offsetTop;
 onMouseLeave(evt : MouseEvent){
 this.x=undefined; this.y=undefined;
 }
-constructor() { }
+
+constructor(route : ActivatedRoute) { 
+  route.params.subscribe(
+    (params: Params)=> {
+      this.modeChoisi = params['mode'];
+    }
+  )
+  //NB:  { path: 'calculatrice/:mode', ... },
+}
+
 ngOnInit(): void {}
 
 }
