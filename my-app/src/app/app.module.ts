@@ -19,8 +19,9 @@ import { TogglePanelComponent } from './toggle-panel/toggle-panel.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ConversionComponent } from './conversion/conversion.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DeviseComponent } from './devise/devise.component';
+import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,13 @@ import { DeviseComponent } from './devise/devise.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyAuthInterceptor,
+      multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
