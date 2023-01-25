@@ -12,6 +12,7 @@ pour onglets en version material:
 npm install -s @angular/material 
 ou mieux encore
 ng add @angular/material 
+ng add @angular/material@14.0.0
 depuis le répertoire my-app et verifier package.json
 
 ajouter si besoin dans partie styles: [] de angular.json
