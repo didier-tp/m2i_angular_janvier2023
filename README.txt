@@ -14,3 +14,6 @@ futures actualisations:
 cd c:\references\m2i_angular_janvier2023
 git pull
 ---------
+
+Exemple d'application angular avec plusieurs modules et lazy-loading:
+variante tp-angular/j5/my-app du référentiel https://github.com/didier-tp/isika-al-frontend-tp
