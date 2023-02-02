@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { lastValueFrom, map  } from 'rxjs';
+import { firstValueFrom, lastValueFrom, map  } from 'rxjs';
 import { Devise } from '../common/data/devise';
 import { DeviseService } from '../common/service/devise.service';
 
@@ -35,7 +35,7 @@ export class ConversionComponent implements OnInit {
 
   async onConvertirV2(){
     try{
-       this.montantConverti =  await lastValueFrom(this._deviseService.convertir$(this.montant,
+       this.montantConverti =  await firstValueFrom(this._deviseService.convertir$(this.montant,
                                   this.codeDeviseSource,
                                   this.codeDeviseCible));
        }catch(err){
