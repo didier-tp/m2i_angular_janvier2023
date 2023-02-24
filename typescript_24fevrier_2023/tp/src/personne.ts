@@ -11,6 +11,8 @@ class Personne {
 }
 */
 
+/*
+//Version 2
 class Personne {
     public prenom : string ;
     public nom : string ;
@@ -38,6 +40,31 @@ class Personne {
         this._age=this._age+1;
         if(this.email != null)
            console.log("taille email=" + this.email.length);
+    }
+}
+*/
+
+class Personne {
+    private email : string | null = null;
+    
+    constructor(public prenom : string = "", 
+                public nom : string = "",
+                private _age : number = 0 ){
+    }
+
+    incrementerAge(){
+        this._age=this._age+1;
+        if(this.email != null)
+           console.log("taille email=" + this.email.length);
+    }
+
+    public get age(){
+        return this._age;
+    }
+
+    public set age(newAge: number){
+       if(newAge>=0) this._age=newAge;
+       else throw "age negatif invalide";
     }
 }
 
