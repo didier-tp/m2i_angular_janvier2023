@@ -8,7 +8,7 @@ import { BasicComponent } from './basic/basic.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExponentialPipe } from './common/pipe/exponential.pipe';
 import { DemoComponent } from './demo/demo.component';
 import { SeuilComponent } from './demo/seuil/seuil.component';
@@ -25,6 +25,9 @@ import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ReactiveLoginComponent } from './reactive-login/reactive-login.component';
+import { HighlightDirective } from './common/directive/highlight.directive';
+import { UnlessDirective } from './common/directive/unless.directive';
 
 @NgModule({
   declarations: [
@@ -45,12 +48,15 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     ConversionComponent,
     DeviseComponent,
-    NotAuthorizedComponent
+    NotAuthorizedComponent,
+    ReactiveLoginComponent,
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule,ReactiveFormsModule ,
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule

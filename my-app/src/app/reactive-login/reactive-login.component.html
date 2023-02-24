@@ -1,0 +1,13 @@
+<p>reactive-login</p>
+<form  novalidate [formGroup]="loginForm">
+    <label>username:</label>
+       <input formControlName="username" />  (ex: admin1)  <br/>
+    <label>password:</label>
+       <input  formControlName="password" />  (ex: pwdadmin1) <br/>
+    <label>roles:</label>
+        <input  formControlName="roles"   />   (ex: admin)  <br/>
+    <input type="button" value="login" (click)="onLogin()"
+                 [disabled]="!loginForm.valid" />
+          <br/>
+    </form>
+    message: <span [style.color]="sessionService.isConnected?'green':'red'">{{message}}</span>

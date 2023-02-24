@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  age=25;
+
   constructor() { }
 
   ngOnInit(): void {

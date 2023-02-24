@@ -9,6 +9,7 @@ import { DemoComponent } from './demo/demo.component';
 import { DeviseComponent } from './devise/devise.component';
 import { LoginComponent } from './login/login.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { ReactiveLoginComponent } from './reactive-login/reactive-login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full'},
   { path : "not-authorized" , component : NotAuthorizedComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'reactive-login', component: ReactiveLoginComponent },
   { path: 'basic', component: BasicComponent ,
     children: [
     { path: 'tva', component: TvaComponent },

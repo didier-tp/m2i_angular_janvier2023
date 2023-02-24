@@ -1,1 +1,11 @@
 <p>welcome works!</p>
+<p>My <span appHighlight>angular</span> app</p>
+
+age: <input type='text' [(ngModel)]="age" /><br/>
+<p *appUnless="age>=18">
+  condition "age>=18" is false and myUnless is true.
+</p> <br/>
+
+<p *appUnless="!(age>=18)">
+  condition "age>=18"  is true and myUnless is false.
+</p>

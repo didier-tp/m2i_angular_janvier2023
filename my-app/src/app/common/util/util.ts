@@ -12,3 +12,7 @@ export function messageFromError(err : HttpErrorResponse , myMsg /*: string*/ = 
       }
     return message;
   }
+
+  export function cloneObject(o: object){
+    return JSON.parse(JSON.stringify(o));
+  }
