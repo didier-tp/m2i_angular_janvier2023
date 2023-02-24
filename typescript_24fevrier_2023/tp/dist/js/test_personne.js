@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const adresse_1 = require("./adresse");
 const joueur_1 = require("./joueur");
 const personne_1 = require("./personne");
 let p1;
@@ -11,6 +12,11 @@ p1.incrementerAge();
 console.log(p1.prenom + " " + p1.nom + " " + p1.age);
 console.log(JSON.stringify(p1));
 let p2 = new personne_1.Personne("alain", "Therieur", 30);
+//p2.adresse = new Adresse(2,"rueXy","75001","Paris");
+p2.adresse.numero = 2;
+p2.adresse.rue = "rueXy";
+p2.adresse.codePostal = "75001";
+p2.adresse.ville = "Paris";
 try {
     p2.age = -5;
 }
@@ -27,3 +33,8 @@ console.log("j1=" + JSON.stringify(j1));
 let j2 = new joueur_1.Joueur("john", "macenero", 52, 2);
 console.log("j2=" + JSON.stringify(j2));
 j2.afficher();
+let a1 = new adresse_1.AdresseAvecDesctructuration();
+console.log("a1=" + JSON.stringify(a1));
+let a2 = new adresse_1.AdresseAvecDesctructuration({ numero: 6, ville: 'Amiens',
+    rue: 'rueQuiVaBien', codePostal: '80000' });
+console.log("a2=" + JSON.stringify(a2));

@@ -13,6 +13,7 @@ class Personne {
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Personne = void 0;
+const adresse_1 = require("./adresse");
 /*
 //Version 2
 class Personne {
@@ -51,6 +52,7 @@ class Personne {
         this.nom = nom;
         this._age = _age;
         this.email = null;
+        this.adresse = new adresse_1.Adresse();
     }
     incrementerAge() {
         this._age = this._age + 1;

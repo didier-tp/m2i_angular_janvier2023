@@ -11,6 +11,8 @@ class Personne {
 }
 */
 
+import { Adresse } from "./adresse";
+
 /*
 //Version 2
 class Personne {
@@ -46,6 +48,7 @@ class Personne {
 
 export class Personne {
     public email : string | null = null;
+    public adresse : Adresse = new Adresse();
 
     constructor(public prenom : string = "", 
                 public nom : string = "",
