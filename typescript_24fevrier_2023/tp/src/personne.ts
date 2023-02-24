@@ -15,6 +15,7 @@ class Personne {
     prenom : string ;
     nom : string ;
     age : number ;
+    email : string | null = null;
 
     constructor(prenom : string = "", 
                 nom : string = "",
@@ -26,6 +27,8 @@ class Personne {
 
     incrementerAge(){
         this.age=this.age+1;
+        if(this.email != null)
+           console.log("taille email=" + this.email.length);
     }
 }
 
