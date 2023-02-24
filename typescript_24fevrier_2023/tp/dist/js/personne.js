@@ -19,7 +19,7 @@ class Personne {
     public prenom : string ;
     public nom : string ;
     private _age : number ;
-    private email : string | null = null;
+    public email : string | null = null;
 
     public get age(){
         return this._age;

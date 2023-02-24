@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const joueur_1 = require("./joueur");
 const personne_1 = require("./personne");
 let p1;
 p1 = new personne_1.Personne();
@@ -16,4 +17,12 @@ try {
 catch (erreur) {
     console.log(erreur);
 }
-console.log(JSON.stringify(p2));
+console.log("p2=" + JSON.stringify(p2));
+let j1 = new joueur_1.Joueur();
+j1.prenom = "luc";
+j1.nom = "NomA";
+j1.age = 25;
+j1.email = "luc.NomA@gmail.com";
+console.log("j1=" + JSON.stringify(j1));
+let j2 = new joueur_1.Joueur("john", "macenero", 52, 2);
+console.log("j2=" + JSON.stringify(j2));
