@@ -1,4 +1,4 @@
-import { AdresseAvecDesctructuration } from "./adresse";
+import { Adresse, AdresseAvecDesctructuration } from "./adresse";
 import { Joueur } from "./joueur";
 import { Personne } from "./personne";
 
