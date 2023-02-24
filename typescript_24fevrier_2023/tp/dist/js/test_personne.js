@@ -38,3 +38,5 @@ console.log("a1=" + JSON.stringify(a1));
 let a2 = new adresse_1.AdresseAvecDesctructuration({ numero: 6, ville: 'Amiens',
     rue: 'rueQuiVaBien', codePostal: '80000' });
 console.log("a2=" + JSON.stringify(a2));
+let a3 = new adresse_1.AdresseAvecDesctructuration({ ville: 'Amiens', rue: 'rueQuiVaBien', });
+console.log("a3=" + JSON.stringify(a3));
