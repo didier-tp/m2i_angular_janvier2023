@@ -62,6 +62,10 @@ export class Personne {
         return this._age;
     }
 
+    public afficher():void{
+        console.log("Personne , prenom=" + this.prenom + "...");
+    }
+
     public set age(newAge: number){
        if(newAge>=0) this._age=newAge;
        else throw "age negatif invalide";

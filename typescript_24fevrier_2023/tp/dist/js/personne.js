@@ -60,6 +60,9 @@ class Personne {
     get age() {
         return this._age;
     }
+    afficher() {
+        console.log("Personne , prenom=" + this.prenom + "...");
+    }
     set age(newAge) {
         if (newAge >= 0)
             this._age = newAge;

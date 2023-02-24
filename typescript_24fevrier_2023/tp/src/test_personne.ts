@@ -23,4 +23,5 @@ console.log("j1=" + JSON.stringify(j1));
 
 let j2 = new Joueur("john","macenero",52,2);
 console.log("j2=" + JSON.stringify(j2));
+j2.afficher();
 

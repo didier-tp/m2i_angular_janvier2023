@@ -26,3 +26,4 @@ j1.email = "luc.NomA@gmail.com";
 console.log("j1=" + JSON.stringify(j1));
 let j2 = new joueur_1.Joueur("john", "macenero", 52, 2);
 console.log("j2=" + JSON.stringify(j2));
+j2.afficher();
