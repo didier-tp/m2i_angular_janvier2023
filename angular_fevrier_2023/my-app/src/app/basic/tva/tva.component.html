@@ -1,3 +1,32 @@
 <div class="bonFond">
- <p>tva works!</p>
+ <h3>calcul de tva</h3>
+ ht : 
+ <!-- <input type="number" [(ngModel)]="ht" /> -->
+ <input type="number" (input)="onCalculTvaTtc()" [(ngModel)]="ht" /> 
+ <br/>
+ taux : 
+ <!-- 
+ <select [(ngModel)]="tauxTva">
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+ </select>
+-->
+
+ <!-- <select [(ngModel)]="tauxTva"> -->
+<!--
+<select [(ngModel)]="tauxTva" (change)="onCalculTvaTtc()">
+    <option *ngFor="let t of listeTaux">{{t}}</option>
+</select>% <br/>
+-->
+<select [(ngModel)]="tauxTva" (change)="onCalculTvaTtc()">
+    <option *ngFor="let t of listeTaux" [ngValue]="t">{{t}}%</option>
+</select> <br/>
+
+<!-- <button (click)="onCalculTvaTtc()">calculer tva et ttc</button> <br/> -->
+<div *ngIf="ttc>0">
+tva=<span class="enEvidence">{{tva}}</span><br/>
+ttc=<span class="enEvidence">{{ttc}}</span>
+</div>
+
 </div>
