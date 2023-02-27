@@ -1,4 +1,4 @@
-.selected { color : blue; font-weight: bold;}
+.selected { color : blue; font-weight: bold; font-style: italic;}
 .myWrapFlexbox {
     padding : 1em; 
     display: flex;
