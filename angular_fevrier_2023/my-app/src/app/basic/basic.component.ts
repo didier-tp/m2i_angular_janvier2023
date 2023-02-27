@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./basic.component.css']
 })
 export class BasicComponent {
+  username =""; //à saisir
+  message=""; //à afficher
+
+  onAction(){
+    this.message = "Bonjour " + this.username;
+  }
 
 }

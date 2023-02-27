@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculatrice.component.css']
 })
 export class CalculatriceComponent {
+  a :number =0; //à saisir
+  b :number =0;//à saisir
+  res : number=0; //à afficher
+
+  onCalculer(op:string){
+    switch(op){
+      case '+':
+        this.res = this.a + this.b; break;
+      case '-':
+          this.res = this.a - this.b; break;
+      case '*':
+          this.res = this.a * this.b; break;
+      case '/':
+          this.res = this.a / this.b; break;
+      default:
+          this.res = 0;
+    }
+  }
 
 }
