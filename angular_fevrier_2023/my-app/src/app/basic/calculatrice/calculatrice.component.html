@@ -7,4 +7,13 @@
   resultat= 
  <!--  <span [style.color]="res>=0 ? 'blue' : 'red' ">{{res}}</span> -->
   <span [class.positif]="res>=0" [class.negatif]="res<0" >{{res}}</span>
+
+  <hr>
+  <div class="c2" (mousemove)="onMouseMove($event)"
+   (mouseout)="onMouseLeave($event)">
+  Zone à survoler à la souris .<br>
+  x={{x}} , y={{y}}
+  </div>
+
+
 </div>
