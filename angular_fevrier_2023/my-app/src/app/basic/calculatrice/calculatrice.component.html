@@ -4,5 +4,5 @@
   b: <input type="number" [(ngModel)]="b" /> <br/>
   <button (click)="onCalculer('+')">+</button> &nbsp; <button (click)="onCalculer('-')">-</button> &nbsp;
   <button (click)="onCalculer('*')">*</button> &nbsp; <button (click)="onCalculer('/')">/</button> <br/>
-  resultat={{res}}
+  resultat= <span [style.color]="res>=0 ? 'blue' : 'red' ">{{res}}</span>
 </div>
