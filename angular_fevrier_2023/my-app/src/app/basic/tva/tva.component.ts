@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tva.component.css']
 })
 export class TvaComponent {
-  ht = 0; //à saisir
+  ht  = 0; //à saisir
   tauxTva =20; //en % à selectionner dans liste déroulante
   tva = 0; //à calculer et afficher
   ttc = 0; //à calculer et afficher

@@ -14,19 +14,22 @@
 -->
 
  <!-- <select [(ngModel)]="tauxTva"> -->
+
 <!--
 <select [(ngModel)]="tauxTva" (change)="onCalculTvaTtc()">
     <option *ngFor="let t of listeTaux">{{t}}</option>
-</select>% <br/>
+</select> <br/>
 -->
+
 <select [(ngModel)]="tauxTva" (change)="onCalculTvaTtc()">
     <option *ngFor="let t of listeTaux" [ngValue]="t">{{t}}%</option>
 </select> <br/>
 
+
 <!-- <button (click)="onCalculTvaTtc()">calculer tva et ttc</button> <br/> -->
 <div *ngIf="ttc>0">
-tva=<span class="enEvidence">{{tva}}</span><br/>
-ttc=<span class="enEvidence">{{ttc}}</span>
+tva=<span class="enEvidence">{{tva | number:'1.0-2' }}</span><br/>
+ttc=<span class="enEvidence">{{ttc | number:'1.0-2' }}</span>
 </div>
 
 </div>
