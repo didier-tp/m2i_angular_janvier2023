@@ -1,6 +1,13 @@
 <div class="container-fluid">
     <app-header></app-header>
     Bienvenu dans <b>{{title}}</b>
-    <app-basic></app-basic>
+
+    <!-- <app-basic></app-basic> -->
+
+    <!-- la balise spéciale router-outlet de angular 
+    sera automatiquement remplacée par le composant associé 
+    à la route courante/sélectionnée -->
+    <router-outlet></router-outlet>
+
     <app-footer></app-footer>
 </div>

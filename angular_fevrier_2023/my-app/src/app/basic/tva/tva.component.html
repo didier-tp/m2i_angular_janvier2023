@@ -1,14 +1,14 @@
 <div class="bonFond">
  <h3>calcul de tva</h3>
 
- <div class="row">
+ <div class="row mt-1">
  <label class="col-sm-4 text-sm-end">ht :</label> 
    <div class="col-sm-8">
     <input class="form-control" type="number" (input)="onCalculTvaTtc()" [(ngModel)]="ht" /> 
    </div>
 </div>
 
-<div class="row">
+<div class="row mt-1">
  <label class="col-sm-4 text-sm-end">taux :</label> 
     <div class="col-sm-8">
         <select class="form-control" [(ngModel)]="tauxTva" (change)="onCalculTvaTtc()">

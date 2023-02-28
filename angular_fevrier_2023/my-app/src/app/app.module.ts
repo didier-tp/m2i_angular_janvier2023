@@ -10,6 +10,8 @@ import { CalculatriceComponent } from './basic/calculatrice/calculatrice.compone
 import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
 import { ZzComponent } from './basic/zz/zz.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -22,7 +24,9 @@ import { ZzComponent } from './basic/zz/zz.component';
     BasicComponent,
     CalculatriceComponent,
     TvaComponent,
-    ZzComponent
+    ZzComponent,
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
