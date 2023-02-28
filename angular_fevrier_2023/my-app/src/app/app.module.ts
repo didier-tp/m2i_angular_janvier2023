@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ZzComponent } from './basic/zz/zz.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
+import { TogglePanelComponent } from './common/components/toggle-panel/toggle-panel.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     TvaComponent,
     ZzComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    TogglePanelComponent
   ],
   imports: [
     BrowserModule,

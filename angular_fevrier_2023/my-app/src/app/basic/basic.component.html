@@ -1,11 +1,20 @@
 <div class="bonFond">
     <p>basic works!</p>
-    
-    <label>username:</label><input [(ngModel)]="username" /><br/>
-    <button (click)="onAction()" class="btn btn-primary" >hello</button> <br/>
-    message: {{message | uppercase}}
+    <app-toggle-panel title="hello">
+        <label>username:</label><input [(ngModel)]="username" /><br/>
+        <button (click)="onAction()" class="btn btn-primary" >hello</button> <br/>
+        message: {{message | uppercase}}
+    </app-toggle-panel>
 
-    <app-calculatrice></app-calculatrice>
-    <app-zz></app-zz>
-    <app-tva></app-tva>
+    <app-toggle-panel title="calculatrice">
+          <app-calculatrice></app-calculatrice>
+    </app-toggle-panel>
+
+    <app-toggle-panel title="zz">
+        <app-zz></app-zz>
+    </app-toggle-panel>
+
+    <app-toggle-panel title="tva">
+        <app-tva></app-tva>
+    </app-toggle-panel>
 </div>
