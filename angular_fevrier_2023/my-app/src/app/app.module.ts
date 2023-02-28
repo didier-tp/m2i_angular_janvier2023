@@ -13,7 +13,8 @@ import { ZzComponent } from './basic/zz/zz.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { TogglePanelComponent } from './common/components/toggle-panel/toggle-panel.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -32,7 +33,7 @@ import { TogglePanelComponent } from './common/components/toggle-panel/toggle-pa
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, BrowserAnimationsModule , MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
