@@ -13,4 +13,11 @@ export class BasicComponent {
     this.message = "Bonjour " + this.username;
   }
 
+  valeurCurseur /*:number*/ =0;
+  
+onChangeCurseur(event : any){
+ const evt : {value:number} = event;
+ this.valeurCurseur = evt.value;
+}
+
 }

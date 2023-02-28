@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { TogglePanelComponent } from './common/components/toggle-panel/toggle-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import { RegletteComponent } from './basic/reglette/reglette.component';
 
 
 
@@ -29,7 +30,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ZzComponent,
     WelcomeComponent,
     LoginComponent,
-    TogglePanelComponent
+    TogglePanelComponent,
+    RegletteComponent
   ],
   imports: [
     BrowserModule,
