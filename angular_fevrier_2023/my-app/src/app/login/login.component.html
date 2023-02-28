@@ -1,13 +1,16 @@
 <h3>login</h3>
-<label>username:</label>
-   <input [(ngModel)]="login.username" required  pattern="^[a-zA-Z].+"  /> 
+<form #formLogin="ngForm" >
+      <label>username:</label>
+      <input [(ngModel)]="login.username" required  pattern="^[a-zA-Z].+" name="username" /> 
+            <br/>
+      <label>password:</label>
+      <input [(ngModel)]="login.password" required minlength="3" name="password" /> 
       <br/>
-<label>password:</label>
-   <input [(ngModel)]="login.password" required minlength="3" /> 
-     <br/>
-<label>roles:</label>
-    <input [(ngModel)]="login.roles" required /> 
-      <br/>
-<input type="button" value="login" (click)="onLogin()" />
-      <br/>
+      <label>roles:</label>
+      <input [(ngModel)]="login.roles" required name="roles" /> 
+            <br/>
+      <input type="button" value="login" (click)="onLogin()"
+             [disabled]="!formLogin.form.valid" />
+            <br/>
+</form>
 message: {{message}}
