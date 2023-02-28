@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Login } from '../common/data/login';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +12,7 @@ export class LoginComponent {
   public login : Login = new Login();
 
   public message :string ="";
-  
+
   public onLogin(){
      this.message = "donnees saisies = " + JSON.stringify(this.login);
   }
