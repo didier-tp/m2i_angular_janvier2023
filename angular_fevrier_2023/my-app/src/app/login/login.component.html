@@ -1,16 +1,29 @@
 <h3>login</h3>
 <form #formLogin="ngForm" >
-      <label>username:</label>
-      <input [(ngModel)]="login.username" required  pattern="^[a-zA-Z].+" name="username" /> 
-            <br/>
-      <label>password:</label>
-      <input [(ngModel)]="login.password" required minlength="3" name="password" /> 
-      <br/>
-      <label>roles:</label>
-      <input [(ngModel)]="login.roles" required name="roles" /> 
-            <br/>
-      <input type="button" value="login" (click)="onLogin()"
+   <div class="row mt-1">
+      <label class="col-sm-4 text-sm-end">username:</label>
+      <div class="col-sm-8">
+        <input class="form-control" [(ngModel)]="login.username" required  pattern="^[a-zA-Z].+" name="username" /> 
+      </div>
+  </div>
+  <div class="row mt-1">
+      <label class="col-sm-4 text-sm-end">password:</label>
+      <div class="col-sm-8">
+         <input class="form-control" [(ngModel)]="login.password" required minlength="3" name="password" /> 
+      </div>
+  </div>
+ <div class="row mt-1">
+      <label class="col-sm-4 text-sm-end">roles:</label>
+      <div class="col-sm-8">
+         <input class="form-control" [(ngModel)]="login.roles" required name="roles" />
+      </div> 
+</div>
+<div class="row mt-1">
+      <label class="col-sm-4"></label>
+      <div class="col-sm-8">
+        <input type="button" value="login" (click)="onLogin()"
              [disabled]="!formLogin.form.valid" />
-            <br/>
+      </div>
+</div>
 </form>
 message: {{message}}
