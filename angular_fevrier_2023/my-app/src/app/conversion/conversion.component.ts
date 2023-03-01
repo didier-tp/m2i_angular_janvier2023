@@ -56,12 +56,21 @@ export class ConversionComponent implements OnInit {
 
   //ngOnInit() est automatiquement appelée par le framework après le constructeur
   //et après la prise en compte des injections et des éventuels @Input
-  ngOnInit(): void {
+  ngOnInitV1(): void {
     this._deviseService.getAllDevises$()
          .subscribe({
             next: (tabDev : Devise[])=>{ this.initListeDevises(tabDev); },
             error: (err) => { console.log("error:"+err)}
          });
+  }
+
+  async ngOnInit() {
+    try{
+      let tabDev =  await firstValueFrom( this._deviseService.getAllDevises$() );
+      this.initListeDevises(tabDev);
+    }catch(ex){
+      console.log("error:"+ex);
+    }
   }
 
 }
