@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviseService} from '../common/service/devise.service'
 import { Devise} from '../common/data/devise'
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-conversion',
@@ -18,7 +19,7 @@ export class ConversionComponent implements OnInit {
 
   constructor(private _deviseService : DeviseService) { }
 
-  onConvertir(){
+  onConvertirV1(){
         console.log("debut de onConvertir")
         this._deviseService.convertir$(this.montant,
                                       this.codeDeviseSource,
@@ -32,6 +33,16 @@ export class ConversionComponent implements OnInit {
         //Attention : sur cette ligne , le résultat n'est à ce stade pas encore connu
         //car appel asynchrone non bloquant et réponse ultérieure via callback
   }
+
+  async onConvertir(){
+    try{
+    this.montantConverti = await firstValueFrom(this._deviseService.convertir$(this.montant,
+                                                this.codeDeviseSource,
+                                                this.codeDeviseCible));
+    }catch(ex){
+      console.log("error:"+ex);
+    }
+}
 
 
   initListeDevises(tabDevises : Devise[]){
