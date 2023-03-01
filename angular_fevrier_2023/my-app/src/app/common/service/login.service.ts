@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Login } from '../data/login';
 import { LoginResponse } from '../data/login-response';
 
+//ng g service login
+
 @Injectable({
   providedIn: 'root'
 })

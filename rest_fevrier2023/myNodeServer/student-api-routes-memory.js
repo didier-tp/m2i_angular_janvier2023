@@ -4,7 +4,7 @@ import express from 'express' ;
 const apiRouter = express.Router();
 
 var allStudents =[];
-var codeMax=4; //pour simulation auto_incr 
+var codeMax=8; //pour simulation auto_incr 
 allStudents.push({ID:1,FirstMidName:"Carson",LastName:"Alexander",EnrollmentDate:"2005-09-01"});
 allStudents.push({ID:2,FirstMidName:"Meredith",LastName:"Alonso",EnrollmentDate:"2002-09-01"});
 allStudents.push({ID:3,FirstMidName:"Arturo",LastName:"Anand",EnrollmentDate:"2003-09-01"});
@@ -74,21 +74,27 @@ apiRouter.route('/api/Students')
     res.send(nouveauStudent);
 });
 
-// http://localhost:8282/api/Students en mode PUT
+// http://localhost:8282/api/Students/1 en mode PUT
 // avec {"ID":1,"FirstMidName":"prenom","LastName":"nom","EnrollmentDate":"2023-02-28"}
 // dans req.body
-apiRouter.route('/api/Students')
+apiRouter.route('/api/Students/:id')
 .put( function(req , res , next ) {
     let newValueOfStudentToUpdate = req.body;
     console.log("PUT,newValueOfStudentToUpdate="
             +JSON.stringify(newValueOfStudentToUpdate));
+	let idStudent = req.params.id;
+	if(newValueOfStudentToUpdate==null || newValueOfStudentToUpdate.ID != idStudent)
+	{ res.status(400).send();//BadRequest 
+     return;
+	 }
     let studentToUpdate =
        findStudentInArrayByID(allStudents,newValueOfStudentToUpdate.ID);
     if(studentToUpdate!=null){
         studentToUpdate.FirstMidName = newValueOfStudentToUpdate.FirstMidName;
         studentToUpdate.LastName = newValueOfStudentToUpdate.LastName;
         studentToUpdate.EnrollmentDate = newValueOfStudentToUpdate.EnrollmentDate;
-        res.send(studentToUpdate);
+        //res.send(studentToUpdate);
+		res.status(204).send(); //no_content
     }else{
     res.status(404).json({ error : "no Student to update with ID=" +
         newValueOfStudentToUpdate.ID });
@@ -105,7 +111,8 @@ apiRouter.route('/api/Students/:id')
         findStudentInArrayByID(allStudents,idStudent);
     if(studentToDelete){
         removeStudentInArrayByID(allStudents,idStudent);
-      res.send({ deletedStudentId : idStudent } );
+       //res.send({ deletedStudentId : idStudent } );
+	   res.status(204).send(); //no_content
     }else{
         res.status(404).json({ error : "no student to delete with ID=" +
         idStudent });
