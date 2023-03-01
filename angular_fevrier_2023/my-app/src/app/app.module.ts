@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RegletteComponent } from './basic/reglette/reglette.component';
 import { ConversionComponent } from './conversion/conversion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -37,7 +38,7 @@ import { ConversionComponent } from './conversion/conversion.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, BrowserAnimationsModule , MatTabsModule
+    AppRoutingModule, FormsModule, BrowserAnimationsModule , MatTabsModule , HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
