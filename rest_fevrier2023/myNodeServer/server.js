@@ -20,7 +20,7 @@ var app = express();
 var jsonParser = express.json({ extended: true });
 app.use(jsonParser);
 
-
+/*
 // CORS enabled with express/node-js :
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
   }
   next();
 });
-
+*/
 
 //les routes en /html/... seront gérées par express par
 //de simples renvois des fichiers statiques
