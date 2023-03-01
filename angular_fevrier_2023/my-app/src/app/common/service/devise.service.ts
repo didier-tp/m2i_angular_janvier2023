@@ -14,6 +14,8 @@ export interface ConvertResult {
 };
 
 
+//ng g service devise
+
 @Injectable({
   providedIn: 'root'
 })
