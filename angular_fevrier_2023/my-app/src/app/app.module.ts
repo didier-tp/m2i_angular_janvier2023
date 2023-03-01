@@ -16,6 +16,7 @@ import { TogglePanelComponent } from './common/components/toggle-panel/toggle-pa
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RegletteComponent } from './basic/reglette/reglette.component';
+import { ConversionComponent } from './conversion/conversion.component';
 
 
 
@@ -31,7 +32,8 @@ import { RegletteComponent } from './basic/reglette/reglette.component';
     WelcomeComponent,
     LoginComponent,
     TogglePanelComponent,
-    RegletteComponent
+    RegletteComponent,
+    ConversionComponent
   ],
   imports: [
     BrowserModule,
