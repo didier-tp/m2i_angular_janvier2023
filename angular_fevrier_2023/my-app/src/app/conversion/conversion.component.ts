@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeviseService} from '../common/service/devise.service'
 import { Devise} from '../common/data/devise'
 import { firstValueFrom } from 'rxjs';
+import { messageFromError } from '../common/util/utils';
 
 @Component({
   selector: 'app-conversion',
@@ -14,6 +15,8 @@ export class ConversionComponent implements OnInit {
   codeDeviseSource : string = "" ;
   codeDeviseCible : string ="";
   montantConverti : number =0;
+
+  message = "";
 
   listeDevises : Devise[] =[]; //à choisir dans liste déroulante.
 
@@ -69,7 +72,8 @@ export class ConversionComponent implements OnInit {
       let tabDev =  await firstValueFrom( this._deviseService.getAllDevises$() );
       this.initListeDevises(tabDev);
     }catch(ex){
-      console.log("error:"+ex);
+      this.message = messageFromError(<any> ex , "echec recuperation des devises ");
+      console.log("error:"+ this.message );
     }
   }
 
