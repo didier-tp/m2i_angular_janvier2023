@@ -20,4 +20,9 @@ export class StudentService {
       return this._http.get<Student[]>(this._apiBaseUrl);
   }
 
+  public putStudents$(student : Student):Observable<any>{
+    let url = this._apiBaseUrl + "/" + student.id;
+    return this._http.put<any>(url,student);
+  }
+
 }

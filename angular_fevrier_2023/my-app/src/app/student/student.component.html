@@ -4,7 +4,8 @@
         <!-- tableau des Students existants -->
         <table border="1">
             <tr><th>ID</th><th>firstName</th><th>lastName</th><th>enrollmentDate</th></tr>
-            <tr *ngFor="let s of studentList" (click)="onSelect(s)">
+            <tr *ngFor="let s of studentList" (click)="onSelect(s)"
+                [class.selected]="s==selectedStudent">
                 <td>{{s.id}}</td>
                 <td>{{s.firstMidName}}</td>
                 <td>{{s.lastName}}</td>

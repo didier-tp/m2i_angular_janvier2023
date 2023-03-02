@@ -25,7 +25,7 @@ export class StudentComponent {
   onSelect(s:Student){
     this.selectedStudent = s;
     //this.student = s; //référence directe : PAS BIEN , PAS BON COMPOERTEMENT
-    this.student = this.clone(s);
+    this.student = this.clone(s); //this.student est une copie de s , BIEN ,  BON COMPOERTEMENT
   }
 
   async recupererStudents(){
