@@ -26,4 +26,4 @@
       </div>
 </div>
 </form>
-message: <span [style.color]="isConnected?'green':'red'">{{message}}</span>
+message: <span [style.color]="sessionService.isConnected?'green':'red'">{{message}}</span>
