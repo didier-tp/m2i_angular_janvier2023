@@ -1,8 +1,8 @@
 export class Student {
     constructor(
-        public id :number = 0,
+        public id :number| null= null,
         public firstMidName : string = "",
         public lastName : string = "",
-        public enrollmentDate : string ="2000-01-01"
+        public enrollmentDate : string = (new Date).toISOString().split('T')[0]
     ){}
 }

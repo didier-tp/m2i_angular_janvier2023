@@ -46,6 +46,14 @@ export class StudentComponent {
    }
   }
 
+  onNew(){
+    //on remet toutes les zones de saisies à blanc/rien
+    //pour pouvoir saisir un nouveau Student
+    //avant de déclencher Add/post
+    this.student = new Student();
+    this.selectedStudent = null;
+  }
+
   async recupererStudents(){
     try{
        this.studentList = await firstValueFrom(this.studentService.getAllStudents$());
