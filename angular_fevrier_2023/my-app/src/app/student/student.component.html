@@ -41,8 +41,10 @@
         <div class="row mt-1 mb-1">
             <label class="col-sm-4 text-sm-end">enrollmentDate:</label>
             <div class="col-sm-8">
-                <input [(ngModel)]="student.enrollmentDate" name="enrollmentDate" 
-                       required class="form-control"/>
+              <!--  <input [(ngModel)]="student.enrollmentDate" name="enrollmentDate" 
+                       required pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}" class="form-control"/> -->
+                <input type="date" [(ngModel)]="student.enrollmentDate" name="enrollmentDate" 
+                       required  class="form-control"/>
             </div>
         </div>
         <button (click)="onUpdate()" [disabled]="selectedStudent==null || !myForm.form.valid">update/put</button> &nbsp; 
