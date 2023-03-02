@@ -23,7 +23,7 @@
         <button (click)="onUpdate()" [disabled]="selectedStudent==null">update/put</button> &nbsp; 
         <button (click)="onNew()">new</button> &nbsp; 
         <button (click)="onAdd()">add/post</button> &nbsp; 
-        <button (click)="onDelete()">delete</button>
+        <button (click)="onDelete()" [disabled]="selectedStudent==null">delete</button>
      </form>
     </div>
     {{message}}

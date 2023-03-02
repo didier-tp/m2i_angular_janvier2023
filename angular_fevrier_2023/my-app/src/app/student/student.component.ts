@@ -66,8 +66,16 @@ export class StudentComponent {
     this.selectedStudent = null;
   }
 
-  onAdd(){
-    
+  async onAdd(){
+    try{
+      let addedStudent = await firstValueFrom(this.studentService.postStudents$(this.student));
+      this.studentList.push(addedStudent);
+      this.student.id=addedStudent.id;
+      this.selectedStudent = addedStudent;
+   }catch(err){
+    this.message = messageFromError(<any> err , "echec add/post ");
+    console.log("error:"+ this.message );
+   }
   }
 
   async onDelete(){
