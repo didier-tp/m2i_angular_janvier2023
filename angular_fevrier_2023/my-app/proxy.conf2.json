@@ -1,7 +1,7 @@
-{ "/devise-api" : { "secure" : "false" ,
+{ "/devise-api" : { "secure" : false ,
                   "target" : "http://localhost:8282" } ,
- "/login-api" : { "secure" : "false" ,
+ "/login-api" : { "secure" : false ,
                     "target" : "http://localhost:8282" } ,
- "/api" : { "secure" : "false" ,
+ "/api" : { "secure" : false ,
                     "target" : "https://localhost:7250" }                       
 }
