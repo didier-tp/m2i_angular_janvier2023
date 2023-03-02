@@ -18,6 +18,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { RegletteComponent } from './basic/reglette/reglette.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentComponent } from './student/student.component';
 
 
 
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     TogglePanelComponent,
     RegletteComponent,
-    ConversionComponent
+    ConversionComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
