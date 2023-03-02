@@ -16,11 +16,11 @@
     <div class="col-sm-6">
         <!-- formulaire de mise à jour d'un Student selectionné  -->
       <form>
-        <label>id:</label><input [(ngModel)]="student.id" name="id"/><br/>
+        <label>id:</label><label>{{student.id}}</label><br/>
         <label>firstMidName:</label><input [(ngModel)]="student.firstMidName" name="firstMidName"/><br/>
         <label>lastName:</label><input [(ngModel)]="student.lastName" name="lastName" /><br/>
         <label>enrollmentDate:</label><input [(ngModel)]="student.enrollmentDate" name="enrollmentDate"/><br/>
-        <button>update/put</button> &nbsp; 
+        <button (click)="onUpdate()">update/put</button> &nbsp; 
         <button>new</button> &nbsp; 
         <button>add/post</button> &nbsp; 
         <button>delete</button>

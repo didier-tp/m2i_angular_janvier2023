@@ -22,10 +22,25 @@ export class StudentComponent {
     return JSON.parse(JSON.stringify(obj));
   }
 
+
+
   onSelect(s:Student){
     this.selectedStudent = s;
     //this.student = s; //référence directe : PAS BIEN , PAS BON COMPOERTEMENT
     this.student = this.clone(s); //this.student est une copie de s , BIEN ,  BON COMPOERTEMENT
+  }
+
+  async onUpdate(){
+    try{
+      await firstValueFrom(this.studentService.putStudents$(this.student));
+      if(this.selectedStudent!=null){
+           this.selectedStudent.firstMidName = this.student.firstMidName;
+           this.selectedStudent.lastName = this.student.lastName;
+           this.selectedStudent.enrollmentDate = this.student.enrollmentDate;
+      }
+   }catch(err){
+      console.log("err="+err);
+   }
   }
 
   async recupererStudents(){
