@@ -15,6 +15,7 @@ export class StudentComponent {
   selectedStudent : Student | null = null; 
   student = new Student() ; //à saisir dans un formulaire
   message = "";
+  isError = false;
 
   constructor(public studentService : StudentService){
     this.recupererStudents();
@@ -40,6 +41,7 @@ export class StudentComponent {
 
   onSelect(s:Student){
     this.selectedStudent = s;
+    this.isError = false;
     this.message="selected student:"+s.id;
     //this.student = s; //référence directe : PAS BIEN , PAS BON COMPOERTEMENT
     this.student = this.clone(s); //this.student est une copie de s , BIEN ,  BON COMPOERTEMENT
@@ -53,9 +55,11 @@ export class StudentComponent {
            this.selectedStudent.lastName = this.student.lastName;
            this.selectedStudent.enrollmentDate = this.student.enrollmentDate;
       }
+      this.isError = false;
    }catch(err){
     this.message = messageFromError(<any> err , "echec update ");
     console.log("error:"+ this.message );
+    this.isError = true;
    }
   }
 
@@ -66,6 +70,7 @@ export class StudentComponent {
     this.student = new Student();
     this.selectedStudent = null;
     this.message="new student (before add/post)"
+    this.isError = false;
   }
 
   async onAdd(){
@@ -75,9 +80,11 @@ export class StudentComponent {
       this.student.id=addedStudent.id;
       this.selectedStudent = addedStudent;
       this.message="succesfully added student: " + this.selectedStudent.id;
+      this.isError = false;
    }catch(err){
     this.message = messageFromError(<any> err , "echec add/post ");
     console.log("error:"+ this.message );
+    this.isError = true;
    }
   }
 
@@ -93,18 +100,22 @@ export class StudentComponent {
       this.removeStudentInArray(this.studentList,this.selectedStudent);
       this.selectedStudent=null;
       this.student = new Student();
+      this.isError = false;
    }catch(err){
      this.message = messageFromError(<any> err , "echec deleteStudents$ ");
      console.log("error:"+ this.message );
+     this.isError = true;
    }
   }
 
   async recupererStudents(){
     try{
        this.studentList = await firstValueFrom(this.studentService.getAllStudents$());
+       this.isError = false;
     }catch(err){
       this.message = messageFromError(<any> err , "echec getAllStudents$ ");
       console.log("error:"+ this.message );
+      this.isError = true;
     }
   }
 

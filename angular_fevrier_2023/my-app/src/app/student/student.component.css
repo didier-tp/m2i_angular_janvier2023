@@ -1,1 +1,3 @@
 .selected { color : blue; font-weight: bold;}
+.isError { color : red; font-weight: bold;}
+.isOk { color : green; font-weight: bold; font-style: italic;}
