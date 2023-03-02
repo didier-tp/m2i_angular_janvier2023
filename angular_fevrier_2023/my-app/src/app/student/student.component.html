@@ -1,4 +1,4 @@
-<p>student</p>
+<h3>student</h3>
 <div class="row">
     <div class="col-sm-6">
         <!-- tableau des Students existants -->
@@ -15,16 +15,38 @@
     </div>
     <div class="col-sm-6">
         <!-- formulaire de mise à jour d'un Student selectionné  -->
-      <form>
-        <label>id:</label><label>{{student.id}}</label><br/>
-        <label>firstMidName:</label><input [(ngModel)]="student.firstMidName" name="firstMidName"/><br/>
-        <label>lastName:</label><input [(ngModel)]="student.lastName" name="lastName" /><br/>
-        <label>enrollmentDate:</label><input [(ngModel)]="student.enrollmentDate" name="enrollmentDate"/><br/>
-        <button (click)="onUpdate()" [disabled]="selectedStudent==null">update/put</button> &nbsp; 
+      <form #myForm="ngForm">
+        <div class="row mt-1">
+            <label class="col-sm-4 text-sm-end">id:</label>
+            <label class="col-sm-8">{{student.id}}</label>
+        </div>
+        <div class="row mt-1">    
+            <label class="col-sm-4 text-sm-end">firstMidName:</label>
+            <div class="col-sm-8">
+                <input [(ngModel)]="student.firstMidName" name="firstMidName" 
+                        required class="form-control"/>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <label class="col-sm-4 text-sm-end">lastName:</label>
+            <div class="col-sm-8">
+                 <input [(ngModel)]="student.lastName" name="lastName" 
+                        required class="form-control"/>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <label class="col-sm-4 text-sm-end">enrollmentDate:</label>
+            <div class="col-sm-8">
+                <input [(ngModel)]="student.enrollmentDate" name="enrollmentDate" 
+                       required class="form-control"/>
+            </div>
+        </div>
+        <button (click)="onUpdate()" [disabled]="selectedStudent==null || !myForm.form.valid">update/put</button> &nbsp; 
         <button (click)="onNew()">new</button> &nbsp; 
-        <button (click)="onAdd()">add/post</button> &nbsp; 
+        <button (click)="onAdd()" [disabled]="selectedStudent!=null || !myForm.form.valid">add/post</button> &nbsp; 
         <button (click)="onDelete()" [disabled]="selectedStudent==null">delete</button>
      </form>
+     <hr/>
+     {{message}}
     </div>
-    {{message}}
 </div>

@@ -40,6 +40,7 @@ export class StudentComponent {
 
   onSelect(s:Student){
     this.selectedStudent = s;
+    this.message="selected student:"+s.id;
     //this.student = s; //référence directe : PAS BIEN , PAS BON COMPOERTEMENT
     this.student = this.clone(s); //this.student est une copie de s , BIEN ,  BON COMPOERTEMENT
   }
@@ -64,6 +65,7 @@ export class StudentComponent {
     //avant de déclencher Add/post
     this.student = new Student();
     this.selectedStudent = null;
+    this.message="new student (before add/post)"
   }
 
   async onAdd(){
@@ -72,6 +74,7 @@ export class StudentComponent {
       this.studentList.push(addedStudent);
       this.student.id=addedStudent.id;
       this.selectedStudent = addedStudent;
+      this.message="succesfully added student: " + this.selectedStudent.id;
    }catch(err){
     this.message = messageFromError(<any> err , "echec add/post ");
     console.log("error:"+ this.message );
@@ -86,6 +89,7 @@ export class StudentComponent {
        studentIdToDelete = this.selectedStudent.id;
     try{
       await firstValueFrom(this.studentService.deleteStudents$(studentIdToDelete));
+      this.message="succesfully deleted student: " + this.selectedStudent.id;
       this.removeStudentInArray(this.studentList,this.selectedStudent);
       this.selectedStudent=null;
       this.student = new Student();
