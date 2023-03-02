@@ -18,6 +18,16 @@ export class StudentComponent {
     this.recupererStudents();
   }
 
+  clone(obj : object){
+    return JSON.parse(JSON.stringify(obj));
+  }
+
+  onSelect(s:Student){
+    this.selectedStudent = s;
+    //this.student = s; //référence directe : PAS BIEN , PAS BON COMPOERTEMENT
+    this.student = this.clone(s);
+  }
+
   async recupererStudents(){
     try{
        this.studentList = await firstValueFrom(this.studentService.getAllStudents$());
