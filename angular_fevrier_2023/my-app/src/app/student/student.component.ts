@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Student } from '../common/data/student';
 import { StudentService } from '../common/service/student.service';
 import { firstValueFrom } from 'rxjs';
+import { messageFromError } from '../common/util/utils';
 
 @Component({
   selector: 'app-student',
@@ -13,6 +14,7 @@ export class StudentComponent {
   studentList : Student[] = []; //à afficher
   selectedStudent : Student | null = null; 
   student = new Student() ; //à saisir dans un formulaire
+  message = "";
 
   constructor(public studentService : StudentService){
     this.recupererStudents();
@@ -39,7 +41,8 @@ export class StudentComponent {
            this.selectedStudent.enrollmentDate = this.student.enrollmentDate;
       }
    }catch(err){
-      console.log("err="+err);
+    this.message = messageFromError(<any> err , "echec update ");
+    console.log("error:"+ this.message );
    }
   }
 
@@ -47,7 +50,8 @@ export class StudentComponent {
     try{
        this.studentList = await firstValueFrom(this.studentService.getAllStudents$());
     }catch(err){
-       console.log("err="+err);
+      this.message = messageFromError(<any> err , "echec getAllStudents$ ");
+      console.log("error:"+ this.message );
     }
   }
 
