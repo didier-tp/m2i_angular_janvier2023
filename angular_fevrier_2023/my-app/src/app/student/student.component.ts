@@ -11,6 +11,8 @@ import { firstValueFrom } from 'rxjs';
 export class StudentComponent {
 
   studentList : Student[] = []; //à afficher
+  selectedStudent : Student | null = null; 
+  student = new Student() ; //à saisir dans un formulaire
 
   constructor(public studentService : StudentService){
     this.recupererStudents();
