@@ -5,30 +5,30 @@ const apiRouter = express.Router();
 
 var allStudents =[];
 var codeMax=8; //pour simulation auto_incr 
-allStudents.push({ID:1,FirstMidName:"Carson",LastName:"Alexander",EnrollmentDate:"2005-09-01"});
-allStudents.push({ID:2,FirstMidName:"Meredith",LastName:"Alonso",EnrollmentDate:"2002-09-01"});
-allStudents.push({ID:3,FirstMidName:"Arturo",LastName:"Anand",EnrollmentDate:"2003-09-01"});
-allStudents.push({ID:4,FirstMidName:"Gytis",LastName:"Barzdukas",EnrollmentDate:"2002-09-01"});
-allStudents.push({ID:5,FirstMidName:"Yan",LastName:"Li",EnrollmentDate:"2002-09-01"});
-allStudents.push({ID:6,FirstMidName:"Peggy",LastName:"Justice",EnrollmentDate:"2001-09-01"});
-allStudents.push({ID:7,FirstMidName:"Laura",LastName:"Norman",EnrollmentDate:"2003-09-01"});
-allStudents.push({ID:8,FirstMidName:"Nino",LastName:"Olivetto",EnrollmentDate:"2005-09-01"});
+allStudents.push({id:1,firstMidName:"Carson",lastName:"Alexander",enrollmentDate:"2005-09-01"});
+allStudents.push({id:2,firstMidName:"Meredith",lastName:"Alonso",enrollmentDate:"2002-09-01"});
+allStudents.push({id:3,firstMidName:"Arturo",lastName:"Anand",enrollmentDate:"2003-09-01"});
+allStudents.push({id:4,firstMidName:"Gytis",lastName:"Barzdukas",enrollmentDate:"2002-09-01"});
+allStudents.push({id:5,firstMidName:"Yan",lastName:"Li",enrollmentDate:"2002-09-01"});
+allStudents.push({id:6,firstMidName:"Peggy",lastName:"Justice",enrollmentDate:"2001-09-01"});
+allStudents.push({id:7,firstMidName:"Laura",lastName:"Norman",enrollmentDate:"2003-09-01"});
+allStudents.push({id:8,firstMidName:"Nino",lastName:"Olivetto",enrollmentDate:"2005-09-01"});
 
 
-function findStudentInArrayByID(students,ID){
+function findStudentInArrayByid(students,id){
     let student=null;
     for(let i in students){
-        if(students[i].ID == ID){
+        if(students[i].id == id){
             student=students[i]; break;
         }
     }
     return student;
 }
 
-function removeStudentInArrayByID(students,ID){
+function removeStudentInArrayByid(students,id){
     let delIndex;
     for(let i in students){
-        if(students[i].ID == ID){
+        if(students[i].id == id){
             delIndex=i; break;
         }
     }
@@ -45,7 +45,7 @@ function removeStudentInArrayByID(students,ID){
 apiRouter.route('/api/Students/:id')
 .get( function(req , res , next ) {
     let idStudent = req.params.id;
-    let student = findStudentInArrayByID(allStudents,idStudent);
+    let student = findStudentInArrayByid(allStudents,idStudent);
     res.send(student);
 });
 
@@ -58,16 +58,16 @@ apiRouter.route('/api/Students')
 
 // http://localhost:8282/api/Students en mode post
 // avec 
-//ou bien { "FirstMidName":"prenom","LastName":"nom","EnrollmentDate":"2023-02-28"}
+//ou bien { "firstMidName":"prenom","lastName":"nom","enrollmentDate":"2023-02-28"}
 //dans req.body
 apiRouter.route('/api/Students')
 .post( function(req , res , next ) {
     let nouveauStudent = req.body;
     //console.log("req.body="+req.body);
    
-    //simulation auto_incr :{"ID":null,"FirstMidName":"prenom","LastName":"nom","EnrollmentDate":"2023-02-28"}
-    if(nouveauStudent.ID == null){
-        codeMax++; nouveauStudent.ID = codeMax;
+    //simulation auto_incr :{"id":null,"firstMidName":"prenom","lastName":"nom","enrollmentDate":"2023-02-28"}
+    if(nouveauStudent.id == null){
+        codeMax++; nouveauStudent.id = codeMax;
     }
     console.log("POST,nouveauStudent="+JSON.stringify(nouveauStudent));
     allStudents.push(nouveauStudent);
@@ -75,7 +75,7 @@ apiRouter.route('/api/Students')
 });
 
 // http://localhost:8282/api/Students/1 en mode PUT
-// avec {"ID":1,"FirstMidName":"prenom","LastName":"nom","EnrollmentDate":"2023-02-28"}
+// avec {"id":1,"firstMidName":"prenom","lastName":"nom","enrollmentDate":"2023-02-28"}
 // dans req.body
 apiRouter.route('/api/Students/:id')
 .put( function(req , res , next ) {
@@ -83,21 +83,21 @@ apiRouter.route('/api/Students/:id')
     console.log("PUT,newValueOfStudentToUpdate="
             +JSON.stringify(newValueOfStudentToUpdate));
 	let idStudent = req.params.id;
-	if(newValueOfStudentToUpdate==null || newValueOfStudentToUpdate.ID != idStudent)
+	if(newValueOfStudentToUpdate==null || newValueOfStudentToUpdate.id != idStudent)
 	{ res.status(400).send();//BadRequest 
      return;
 	 }
     let studentToUpdate =
-       findStudentInArrayByID(allStudents,newValueOfStudentToUpdate.ID);
+       findStudentInArrayByid(allStudents,newValueOfStudentToUpdate.id);
     if(studentToUpdate!=null){
-        studentToUpdate.FirstMidName = newValueOfStudentToUpdate.FirstMidName;
-        studentToUpdate.LastName = newValueOfStudentToUpdate.LastName;
-        studentToUpdate.EnrollmentDate = newValueOfStudentToUpdate.EnrollmentDate;
+        studentToUpdate.firstMidName = newValueOfStudentToUpdate.firstMidName;
+        studentToUpdate.lastName = newValueOfStudentToUpdate.lastName;
+        studentToUpdate.enrollmentDate = newValueOfStudentToUpdate.enrollmentDate;
         //res.send(studentToUpdate);
 		res.status(204).send(); //no_content
     }else{
-    res.status(404).json({ error : "no Student to update with ID=" +
-        newValueOfStudentToUpdate.ID });
+    res.status(404).json({ error : "no Student to update with id=" +
+        newValueOfStudentToUpdate.id });
     }
 });
 
@@ -108,13 +108,13 @@ apiRouter.route('/api/Students/:id')
     let idStudent = req.params.id;
     console.log("DELETE,idStudent="+idStudent);
     let studentToDelete =
-        findStudentInArrayByID(allStudents,idStudent);
+        findStudentInArrayByid(allStudents,idStudent);
     if(studentToDelete){
-        removeStudentInArrayByID(allStudents,idStudent);
+        removeStudentInArrayByid(allStudents,idStudent);
        //res.send({ deletedStudentId : idStudent } );
 	   res.status(204).send(); //no_content
     }else{
-        res.status(404).json({ error : "no student to delete with ID=" +
+        res.status(404).json({ error : "no student to delete with id=" +
         idStudent });
     }
 });
