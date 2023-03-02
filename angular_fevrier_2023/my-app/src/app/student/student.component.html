@@ -22,8 +22,8 @@
         <label>enrollmentDate:</label><input [(ngModel)]="student.enrollmentDate" name="enrollmentDate"/><br/>
         <button (click)="onUpdate()" [disabled]="selectedStudent==null">update/put</button> &nbsp; 
         <button (click)="onNew()">new</button> &nbsp; 
-        <button>add/post</button> &nbsp; 
-        <button>delete</button>
+        <button (click)="onAdd()">add/post</button> &nbsp; 
+        <button (click)="onDelete()">delete</button>
      </form>
     </div>
     {{message}}

@@ -24,6 +24,18 @@ export class StudentComponent {
     return JSON.parse(JSON.stringify(obj));
   }
 
+  removeStudentInArray(students : Student[],student : Student){
+    let delIndex=-1;
+    for(let i =0;i<students.length; i++){
+        if(students[i] == student){
+            delIndex=i; break;
+        }
+    }
+    if(delIndex>=0){
+      students.splice(delIndex,1);
+    }
+}
+
 
 
   onSelect(s:Student){
@@ -52,6 +64,27 @@ export class StudentComponent {
     //avant de déclencher Add/post
     this.student = new Student();
     this.selectedStudent = null;
+  }
+
+  onAdd(){
+    
+  }
+
+  async onDelete(){
+    let studentIdToDelete = 0;
+    if(this.selectedStudent==null || this.selectedStudent.id==null) 
+        return;
+    else 
+       studentIdToDelete = this.selectedStudent.id;
+    try{
+      await firstValueFrom(this.studentService.deleteStudents$(studentIdToDelete));
+      this.removeStudentInArray(this.studentList,this.selectedStudent);
+      this.selectedStudent=null;
+      this.student = new Student();
+   }catch(err){
+     this.message = messageFromError(<any> err , "echec deleteStudents$ ");
+     console.log("error:"+ this.message );
+   }
   }
 
   async recupererStudents(){
