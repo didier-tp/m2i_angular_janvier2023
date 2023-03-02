@@ -34,6 +34,7 @@ export class LoginComponent {
      }catch(ex){
       this.message = messageFromError(<any> ex , "echec login ");
       console.log("error:"+ this.message );
+      this.sessionService.username = "?";
      }
   }
 }

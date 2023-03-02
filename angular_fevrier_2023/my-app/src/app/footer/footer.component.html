@@ -3,4 +3,5 @@
       <select [(ngModel)]="preferencesService.couleurFondPreferee" >
           <option *ngFor="let c of listeCouleurs" [ngValue]="c">{{c}}</option>
       </select>
+      &nbsp; username={{sessionService.username}}
   </p>
