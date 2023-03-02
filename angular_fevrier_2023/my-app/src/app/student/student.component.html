@@ -1,1 +1,18 @@
-<p>student works!</p>
+<p>student</p>
+<div class="row">
+    <div class="col-sm-6">
+        <!-- tableau des Students existants -->
+        <table border="1">
+            <tr><th>ID</th><th>firstName</th><th>lastName</th><th>enrollmentDate</th></tr>
+            <tr *ngFor="let s of studentList" >
+                <td>{{s.ID}}</td>
+                <td>{{s.FirstMidName}}</td>
+                <td>{{s.LastName}}</td>
+                <td>{{s.EnrollmentDate}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-6">
+        <!-- formulaire de mise à jour d'un Student selectionné  -->
+    </div>
+</div>
