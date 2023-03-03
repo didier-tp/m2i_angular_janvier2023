@@ -1,1 +1,13 @@
 <p>welcome works!</p>
+
+
+<div *ngFor="let g of Genre | keyvalue"> 
+    <input type="radio" [(ngModel)]="genre" [value]="g.key" /> {{g.value}}
+</div>
+<hr/>
+<div *ngFor="let k of keysOfGenre()"> 
+    <input type="radio" [(ngModel)]="genre" [value]="k" /> {{enumGenreAsText(k)}}
+</div>
+<hr/>
+genre : {{genre}} {{enumGenreAsText(genre)}}
+
