@@ -1,13 +1,22 @@
 <p>welcome works!</p>
 
-
+<p>codage interne (key/value) de l'enum Genre:</p>
 <div *ngFor="let g of Genre | keyvalue"> 
-    <input type="radio" [(ngModel)]="genre" [value]="g.key" /> {{g.value}}
+    key={{g.key}} value={{g.value}}
 </div>
 <hr/>
-<div *ngFor="let k of keysOfGenre()"> 
-    <input type="radio" [(ngModel)]="genre" [value]="k" /> {{enumGenreAsText(k)}}
+<p>liste des valeurs l'enum Genre:</p>
+<span *ngFor="let sk of GenreStringKeys"> {{sk}} &nbsp;</span>
+<hr/>
+<p>choix via boutons radios:</p>
+<div *ngFor="let k of GenreNumberKeys"> 
+    <input type="radio" [(ngModel)]="genre" [value]="k" /> {{k}} {{Genre[k]}}
 </div>
 <hr/>
-genre : {{genre}} {{enumGenreAsText(genre)}}
+<p>choix via select/options:</p>
+<select [(ngModel)]="genre">
+   <option *ngFor="let k of GenreNumberKeys" [ngValue]="k"> {{Genre[k]}} </option>
+</select>
+<hr/>
+genre : {{genre}} {{Genre[genre]}} 
 

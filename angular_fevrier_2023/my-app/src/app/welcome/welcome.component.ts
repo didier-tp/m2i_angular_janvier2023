@@ -7,16 +7,27 @@ import { Genre } from '../common/data/genre';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  Genre = Genre;
-  genre : Genre = Genre.Inconnu;
+  //NB: export enum Genre{    Monsieur,    Madame,    Inconnu} dans common/data/genre.ts
+  Genre = Genre; //pour pouvoir ecrire Genre[genre] coté .html
+  GenreNumberKeys : number[] = []; // [ 0 , 1 , 2] construit pas extractKeysOfGenre()
+  GenreStringKeys : string[]= []; // [ "Monsieur" , "Madame" , "Inconnu"] construit pas extractKeysOfGenre()
+  
+  genre : Genre = Genre.Inconnu; //ici ou bien dans objet 
 
-  keysOfGenre() : Array<any> {
+  extractKeysOfGenre() : void {
     var keys = Object.keys(this.Genre);
-    return keys.slice(keys.length / 2);
-}
-
-  enumGenreAsText(g : Genre){
-    return Genre[g];
+    let indexMilieu = keys.length / 2;
+    for(let i=0;i<indexMilieu;i++){
+      this.GenreNumberKeys.push(Number(keys[i]));
+    }
+    for(let i=indexMilieu;i<keys.length;i++){
+      this.GenreStringKeys.push(keys[i]);
+    }
   }
+
+  constructor(){
+    this.extractKeysOfGenre();
+  }
+
 
 }
