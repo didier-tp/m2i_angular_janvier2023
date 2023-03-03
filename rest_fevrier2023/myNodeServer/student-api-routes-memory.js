@@ -66,7 +66,7 @@ apiRouter.route('/api/Students')
     //console.log("req.body="+req.body);
    
     //simulation auto_incr :{"id":null,"firstMidName":"prenom","lastName":"nom","enrollmentDate":"2023-02-28"}
-    if(nouveauStudent.id == null){
+    if(nouveauStudent.id == null || nouveauStudent.id == 0){
         codeMax++; nouveauStudent.id = codeMax;
     }
     console.log("POST,nouveauStudent="+JSON.stringify(nouveauStudent));
